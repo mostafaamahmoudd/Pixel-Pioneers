@@ -6,7 +6,6 @@ public class Movement : MonoBehaviour
 {
     private Rigidbody2D rb;
     private BoxCollider2D coll;
-    private SpriteRenderer sprite;
     private Animator anim;
 
     private enum MovementState { idle, running, jumping, falling };
@@ -29,7 +28,6 @@ public class Movement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         coll = GetComponent<BoxCollider2D>();
-        sprite = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
     }
 
@@ -45,7 +43,6 @@ public class Movement : MonoBehaviour
         {
             GameObject bulletClone = (GameObject)Instantiate(Bullet, FirePoint.position, FirePoint.rotation);
 
-            //FirePoint.transform.localScale = transform.localScale;
             bulletClone.transform.localScale = transform.localScale;
         }
     }
@@ -58,13 +55,13 @@ public class Movement : MonoBehaviour
         {
             rb.velocity = new Vector2(moveSpeed, rb.velocity.y);
             state = MovementState.running;
-            sprite.flipX = false;
+            transform.localScale = new Vector3(1, 1, 1);
         }
         else if (Input.GetKey(left))
         {
             rb.velocity = new Vector2(-1 * moveSpeed, rb.velocity.y);
             state = MovementState.running;
-            sprite.flipX = true;
+            transform.localScale = new Vector3(-1, 1, 1);
         }
         else
         {

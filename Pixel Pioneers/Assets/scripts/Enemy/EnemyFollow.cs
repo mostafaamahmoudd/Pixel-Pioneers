@@ -9,16 +9,21 @@ public class EnemyFollow : MonoBehaviour
 
     private Transform target;
 
-    void Start()
-    {
-        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-    }
+    //void Start()
+    //{
+    //    target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+    //}
 
     void Update()
     {
+        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         if (Vector2.Distance(transform.position, target.position) > stoppingDistance)
         {
             transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+        }
+        else
+        {
+            // ATTACK
         }
     }
 }
