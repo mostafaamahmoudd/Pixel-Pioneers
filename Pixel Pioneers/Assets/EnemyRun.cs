@@ -8,9 +8,9 @@ public class EnemyRun : StateMachineBehaviour
     private Rigidbody2D rb;
     private Enemy enemy;
 
-    [SerializeField] private float speed = 6f;
-    [SerializeField] private float attackRange = 3f;
-    //[SerializeField] private float idleRange = 10f;
+    [SerializeField] private float speed = 7f;
+    [SerializeField] private float attackRange = 2.79f;
+    [SerializeField] private float idleRange = 10f;
 
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -19,7 +19,6 @@ public class EnemyRun : StateMachineBehaviour
         enemy = animator.GetComponent<Enemy>();
     }
 
-    //OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         enemy.LookAtPlayer();
@@ -27,33 +26,23 @@ public class EnemyRun : StateMachineBehaviour
         Vector2 target = new Vector2(player.position.x, animator.transform.position.y);
         Vector2 newPos = Vector2.MoveTowards(animator.transform.position, target, speed * Time.deltaTime);
 
-        animator.transform.position = newPos;
-
-        //rb.MovePosition(newPos);
-
-        //if (Vector2.Distance(player.position, rb.position) <= attackRange)
-        //{
-        //    animator.SetTrigger("Attack");
-        //}
+        if (Vector2.Distance(player.position, rb.position) > attackRange)
+        {
+            animator.transform.position = newPos;
+        }
+        else if (Vector2.Distance(player.position, rb.position) <= attackRange)
+        {
+            animator.SetTrigger("Attack");
+        }
+        
+        if (Vector2.Distance(player.position, rb.position) > idleRange)
+        {
+            animator.SetBool("isFollowing", false);
+        }
     }
 
-    // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        //animator.ResetTrigger("Attack");
+        animator.ResetTrigger("Attack");
     }
 }
-
-
-
-
-
-
-//else if (Vector2.Distance(player.position, rb.position) >= attackRange)
-//{
-//}
-
-//if (Vector2.Distance(player.position, rb.position) >= idleRange)
-//{
-//    animator.SetBool("isFollowing", false);
-//}

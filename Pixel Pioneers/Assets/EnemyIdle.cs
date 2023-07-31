@@ -26,9 +26,4 @@ public class EnemyIdle : StateMachineBehaviour
             animator.SetBool("isFollowing", true);
         }
     }
-
-    //public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    animator.SetBool("isFollowing", false); 
-    //}
 }

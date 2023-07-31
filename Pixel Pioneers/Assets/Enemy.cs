@@ -4,7 +4,30 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    private Animator anim;
+
     [SerializeField] private Transform target;
+
+    [SerializeField] private float health, maxHealth = 3f;
+
+    private void Start()
+    {
+        anim = GetComponent<Animator>();
+
+        health = maxHealth;
+    }
+
+    public void TakeDamage(float _damage)
+    {
+        health -= _damage;
+
+        anim.SetTrigger("hurt");
+
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
 
     public void LookAtPlayer()
     {
