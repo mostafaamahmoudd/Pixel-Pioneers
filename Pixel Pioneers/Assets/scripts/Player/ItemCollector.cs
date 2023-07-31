@@ -7,6 +7,8 @@ public class ItemCollector : MonoBehaviour
 {
     [SerializeField] private Text appleText;
     [SerializeField] private AudioSource collectSoundEffect;
+    [SerializeField] private AudioSource healSoundEffect;
+
 
     private int apples = 0;
 
@@ -18,6 +20,10 @@ public class ItemCollector : MonoBehaviour
             Destroy(collision.gameObject);
             apples++;
             appleText.text = "Apples : " + apples;
+        }
+        else if (collision.gameObject.CompareTag("Health"))
+        {
+            healSoundEffect.Play();
         }
     }
 }

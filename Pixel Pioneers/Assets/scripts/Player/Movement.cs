@@ -12,6 +12,8 @@ public class Movement : MonoBehaviour
 
     [SerializeField] private LayerMask jumpableGround;
 
+    [SerializeField] private AudioSource attakSoundEffect;
+
     [SerializeField] private GameObject Bullet;
 
     [SerializeField] private Transform FirePoint;
@@ -42,6 +44,8 @@ public class Movement : MonoBehaviour
         if (Input.GetKeyDown(attack))
         {
             GameObject bulletClone = (GameObject)Instantiate(Bullet, FirePoint.position, FirePoint.rotation);
+
+            attakSoundEffect.Play();
 
             bulletClone.transform.localScale = transform.localScale;
         }

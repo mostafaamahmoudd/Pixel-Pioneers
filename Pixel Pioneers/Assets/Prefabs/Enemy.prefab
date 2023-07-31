@@ -237,3 +237,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  health: 0
+  maxHealth: 3

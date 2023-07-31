@@ -203,6 +203,7 @@ MonoBehaviour:
   jumpableGround:
     serializedVersion: 2
     m_Bits: 256
+  attakSoundEffect: {fileID: 0}
   Bullet: {fileID: 5246622244334183114, guid: 2176ea657d5a1a4499c4b44cf397c87e, type: 3}
   FirePoint: {fileID: 1983103121}
   right: 100
@@ -225,6 +226,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   appleText: {fileID: 0}
   collectSoundEffect: {fileID: 1147230636497933627}
+  healSoundEffect: {fileID: 0}
 --- !u!114 &1147230636497933625
 MonoBehaviour:
   m_ObjectHideFlags: 0

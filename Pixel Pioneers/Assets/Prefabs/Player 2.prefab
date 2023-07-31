@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 358314999490484566}
   m_Layer: 0
   m_Name: Player 2
-  m_TagString: Player
+  m_TagString: Player 2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -173,6 +173,7 @@ MonoBehaviour:
   jumpableGround:
     serializedVersion: 2
     m_Bits: 256
+  attakSoundEffect: {fileID: 0}
   Bullet: {fileID: 5246622244334183114, guid: 2176ea657d5a1a4499c4b44cf397c87e, type: 3}
   FirePoint: {fileID: 798040623424163071}
   right: 100
@@ -195,6 +196,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   appleText: {fileID: 0}
   collectSoundEffect: {fileID: 358314999490484565}
+  healSoundEffect: {fileID: 0}
 --- !u!114 &358314999490484567
 MonoBehaviour:
   m_ObjectHideFlags: 0
