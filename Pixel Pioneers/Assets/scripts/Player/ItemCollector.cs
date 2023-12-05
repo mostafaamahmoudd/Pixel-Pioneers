@@ -25,5 +25,11 @@ public class ItemCollector : MonoBehaviour
         {
             healSoundEffect.Play();
         }
+        else if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Destroy(collision.gameObject);
+            apples--;
+            appleText.text = "Apples : " + apples;
+        }
     }
 }
