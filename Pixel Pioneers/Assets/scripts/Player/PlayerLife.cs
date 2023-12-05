@@ -7,8 +7,6 @@ public class PlayerLife : MonoBehaviour
 {
     [SerializeField] private AudioSource deathSoundEffect;
 
-    TimeLeft tl;
-
     private Rigidbody2D rb;
     private Animator anim;
 
@@ -16,12 +14,11 @@ public class PlayerLife : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        tl = GetComponent<TimeLeft>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Trap") || tl.timeUp == true)
+        if (collision.gameObject.CompareTag("Trap"))
         {
             Die();
         }

@@ -252,6 +252,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a0e70f5c55a02947a35f8ddc2c16835, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerAnim: {fileID: 322774089}
+  playerRB: {fileID: 322774088}
+  deathSoundEffect: {fileID: 322774092}
+  timeUp: 0
 --- !u!114 &301072706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -293,6 +297,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 301072703}
   m_CullTransparentMesh: 0
+--- !u!50 &322774088 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 6552442421934274159, guid: d734e800747f1704d86b24de6f3e2872,
+    type: 3}
+  m_PrefabInstance: {fileID: 6552442421875775489}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &322774089 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6552442421934274163, guid: d734e800747f1704d86b24de6f3e2872,
+    type: 3}
+  m_PrefabInstance: {fileID: 6552442421875775489}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &322774092 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6552442421934274166, guid: d734e800747f1704d86b24de6f3e2872,
+    type: 3}
+  m_PrefabInstance: {fileID: 6552442421875775489}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &377192479
 GameObject:
   m_ObjectHideFlags: 0
