@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class TimeLeft : MonoBehaviour
 {
     private Text time1;
-    public static float timer = 10f;
+    [SerializeField] private float timer = 10f;
 
     [SerializeField] private Animator playerAnim;
     [SerializeField] private Rigidbody2D playerRB;
@@ -30,6 +30,7 @@ public class TimeLeft : MonoBehaviour
         else
         {
             Die();
+            timer = 10;
         }
     }
 
@@ -38,8 +39,7 @@ public class TimeLeft : MonoBehaviour
         deathSoundEffect.Play();
         playerAnim.SetTrigger("death");
         playerRB.bodyType = RigidbodyType2D.Static;
-        Invoke("RestartLevel", 1f);
-        timer = 10;
+        Invoke("RestartLevel", 0.5f);
     }
 
     private void RestartLevel()
